@@ -1,0 +1,31 @@
+# Ignore frontend completely
+frontend/
+src/
+
+# Ignore electron files
+electron/
+main.js
+preload.js
+
+# Ignore development files
+node_modules/
+*.log
+.env.local
+
+# Ignore documentation
+*.md
+*.txt
+AUTH_MIGRATION_README.md
+
+# Ignore database files
+datebase/
+uploads/
+
+# Ignore scripts
+*.bat
+start-*.bat
+stop-*.bat
+
+# Ignore build outputs
+dist/
+build/ 

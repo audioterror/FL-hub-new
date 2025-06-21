@@ -1,53 +1,26 @@
 {
-  "name": "fl-hub-by-audioterror",
-  "version": "1.0.0",
-  "description": "FL Hub - Desktop application for FL Studio",
-  "main": "main.js",
+  "name": "fl-hub-backend",
+  "version": "2.0.0",
+  "description": "FL Hub Backend - Node.js API server with authentication",
+  "main": "backend/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cd backend && npm start",
-    "build": "cd backend && npm install",
-    "dev:frontend": "cd frontend && npm run dev",
-    "dev:electron": "set NODE_ENV=development && npx electron .",
-    "dev": "concurrently -n \"FRONTEND,ELECTRON\" -c \"blue,green\" \"npm run dev:frontend\" \"wait-on http://localhost:5174 && npm run dev:electron\"",
-    "build:frontend": "cd frontend && npm run build",
-    "build:electron": "npm run build:frontend && electron-builder",
+    "build": "echo 'Build completed - backend only'",
+    "dev": "cd backend && npm run dev",
     "dev:backend": "cd backend && npm run dev",
-    "backend": "cd backend && npm start",
-    "dev:all": "concurrently -n \"FRONTEND,BACKEND,ELECTRON\" -c \"blue,red,green\" \"npm run dev:frontend\" \"npm run dev:backend\" \"wait-on http://localhost:5174 && npm run dev:electron\""
+    "backend": "cd backend && npm start"
   },
-      "keywords": [
-    "electron",
-    "react",
-    "fl",
-    "fl studio"
+  "keywords": [
+    "nodejs",
+    "express",
+    "api",
+    "backend",
+    "authentication"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "audioterror",
+  "license": "MIT",
   "type": "commonjs",
-  "devDependencies": {
-    "concurrently": "^9.1.2",
-    "electron": "^36.2.1",
-    "electron-builder": "^26.0.12",
-    "wait-on": "^8.0.3"
-  },
-  "build": {
-    "appId": "com.audioterror.flhub",
-    "productName": "FL Hub",
-    "files": [
-      "main.js",
-      "preload.js",
-      "frontend/dist/**/*"
-    ],
-    "directories": {
-      "output": "dist"
-    },
-    "win": {
-      "target": "nsis"
-    }
-  },
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^5.1.0"
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
