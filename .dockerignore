@@ -1,0 +1,42 @@
+# Node modules
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+
+# Build outputs
+frontend/dist/
+backend/dist/
+dist/
+build/
+
+# Electron specific
+electron/
+main.js
+preload.js
+
+# Development files
+.env
+.env.local
+*.log
+npm-debug.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+*.md
+*.txt
+
+# Database files
+datebase/
+uploads/
+
+# Scripts
+*.bat
+start-*.bat
+stop-*.bat 

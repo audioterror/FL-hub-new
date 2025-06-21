@@ -5,12 +5,13 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron .",
+    "start": "cd backend && npm start",
+    "build": "cd backend && npm install",
     "dev:frontend": "cd frontend && npm run dev",
     "dev:electron": "set NODE_ENV=development && npx electron .",
     "dev": "concurrently -n \"FRONTEND,ELECTRON\" -c \"blue,green\" \"npm run dev:frontend\" \"wait-on http://localhost:5174 && npm run dev:electron\"",
     "build:frontend": "cd frontend && npm run build",
-    "build": "npm run build:frontend && electron-builder",
+    "build:electron": "npm run build:frontend && electron-builder",
     "dev:backend": "cd backend && npm run dev",
     "backend": "cd backend && npm start",
     "dev:all": "concurrently -n \"FRONTEND,BACKEND,ELECTRON\" -c \"blue,red,green\" \"npm run dev:frontend\" \"npm run dev:backend\" \"wait-on http://localhost:5174 && npm run dev:electron\""
