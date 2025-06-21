@@ -1,0 +1,25 @@
+# Зависимости
+node_modules/
+
+# Переменные окружения
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Логи
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Директории сборки
+dist/
+build/
+
+# Временные файлы
+.DS_Store
+.tmp
+.temp

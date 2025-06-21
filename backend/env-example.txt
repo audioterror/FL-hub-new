@@ -1,0 +1,38 @@
+# Database Configuration
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD=your_password
+DB_NAME=flhub_bd
+
+# JWT Configuration
+JWT_SECRET=your-super-secret-jwt-key
+SESSION_SECRET=your-super-secret-session-key
+
+# Server Configuration
+PORT=5000
+NODE_ENV=development
+API_HOST=http://localhost:5000
+FRONTEND_URL=http://localhost:5174
+
+# Google OAuth Configuration
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+
+# Email Configuration (Gmail)
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASSWORD=your-app-password
+
+# Telegram Bot Configuration (deprecated)
+TELEGRAM_BOT_TOKEN=your-telegram-bot-token
+BOT_USERNAME=FLhuboff_bot
+
+# Object Storage Configuration (Yandex Cloud)
+YANDEX_CLOUD_KEY_ID=your-yandex-key-id
+YANDEX_CLOUD_SECRET=your-yandex-secret
+YANDEX_BUCKET_NAME=flhub-files
+YANDEX_REGION=ru-central1
+YANDEX_ENDPOINT=https://storage.yandexcloud.net
+
+# CORS Configuration
+ALLOWED_ORIGINS=http://localhost:3000,http://localhost:5174 

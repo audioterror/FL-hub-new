@@ -1,0 +1,38 @@
+-- Создание таблицы ролей
+CREATE TABLE IF NOT EXISTS roles (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(50) UNIQUE NOT NULL
+);
+
+-- Вставка предопределенных ролей
+INSERT INTO roles (name) VALUES 
+  ('BASIC'),
+  ('VIP'),
+  ('ADMIN'),
+  ('CEO')
+ON CONFLICT (name) DO NOTHING;
+
+-- Создание таблицы пользователей
+CREATE TABLE IF NOT EXISTS tg_users (
+  id SERIAL PRIMARY KEY,
+  telegram_id BIGINT UNIQUE NOT NULL,
+  telegram_username VARCHAR(100),
+  first_name VARCHAR(100),
+  last_name VARCHAR(100),
+  role_id INT REFERENCES roles(id),
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Создание индекса для быстрого поиска по telegram_id
+CREATE INDEX IF NOT EXISTS idx_tg_users_telegram_id ON tg_users(telegram_id);
+
+-- Создание тестового администратора
+INSERT INTO tg_users (telegram_id, telegram_username, first_name, last_name, role_id)
+VALUES (
+  123456789, -- Заглушка для telegram_id
+  'admin_test',
+  'Admin',
+  'Test',
+  (SELECT id FROM roles WHERE name = 'ADMIN')
+)
+ON CONFLICT (telegram_id) DO NOTHING;

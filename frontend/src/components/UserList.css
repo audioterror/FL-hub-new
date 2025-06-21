@@ -1,0 +1,342 @@
+.user-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.user-list-search {
+  margin-bottom: 10px;
+}
+
+.user-list-search input {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 4px;
+  border: 1px solid #444;
+  background-color: #2a2a2a;
+  color: #fff;
+  font-size: 14px;
+}
+
+.user-list-search input:focus {
+  outline: none;
+  border-color: #ff9800;
+  box-shadow: 0 0 0 2px rgba(255, 152, 0, 0.2);
+}
+
+.user-list-table-container {
+  overflow-x: auto;
+}
+
+.user-list-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #fff;
+}
+
+.user-list-table th,
+.user-list-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #333;
+}
+
+.user-list-table th {
+  background-color: #2a2a2a;
+  font-weight: 600;
+  color: #aaa;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.user-list-table tbody tr:hover {
+  background-color: #2a2a2a;
+}
+
+.user-list-table select {
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #444;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+.user-list-table select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.user-list-table select.error {
+  border-color: #ff5555;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-tooltip {
+  position: absolute;
+  background-color: #ff5555;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-top: 5px;
+  z-index: 10;
+  max-width: 250px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.error-tooltip::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 10px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #ff5555;
+}
+
+.delete-button {
+  background-color: #333;
+  color: #ff5555;
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #ff5555;
+  color: #fff;
+}
+
+.delete-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.delete-confirm {
+  display: flex;
+  gap: 5px;
+}
+
+.confirm-yes,
+.confirm-no {
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.confirm-yes {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.confirm-yes:hover {
+  background-color: #388e3c;
+}
+
+.confirm-no {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.confirm-no:hover {
+  background-color: #d32f2f;
+}
+
+.confirm-yes:disabled,
+.confirm-no:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.no-users {
+  text-align: center;
+  padding: 20px;
+  color: #aaa;
+}
+
+.current-user {
+  background-color: rgba(255, 152, 0, 0.1);
+}
+
+.current-user-badge {
+  background-color: #ff9800;
+  color: #000;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+/* Стили для модального окна выбора срока действия VIP */
+.duration-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(3px);
+}
+
+.duration-modal {
+  background-color: #222;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #444;
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.duration-modal-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid #444;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2a2a2a;
+}
+
+.duration-modal-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #ff9800;
+}
+
+.duration-modal-header .close-button {
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.duration-modal-header .close-button:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.duration-modal-content {
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.duration-modal-content p {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #ddd;
+}
+
+.duration-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.duration-options label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.duration-options label:hover {
+  background-color: #2a2a2a;
+}
+
+.duration-options input[type="radio"] {
+  margin-right: 10px;
+  accent-color: #ff9800;
+}
+
+.duration-options span {
+  color: #fff;
+}
+
+.duration-modal-footer {
+  padding: 16px 20px;
+  border-top: 1px solid #444;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.duration-modal-footer button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.duration-modal-footer .cancel-button {
+  background-color: transparent;
+  color: #ddd;
+  border: 1px solid #444;
+}
+
+.duration-modal-footer .cancel-button:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.duration-modal-footer .confirm-button {
+  background-color: #ff9800;
+  color: #000;
+  border: none;
+  font-weight: 500;
+}
+
+.duration-modal-footer .confirm-button:hover {
+  background-color: #ffb74d;
+}
+
+/* Стили для отображения срока действия VIP */
+.vip-expiry {
+  font-size: 12px;
+  color: #ffb74d;
+  margin-top: 5px;
+  display: block;
+}
